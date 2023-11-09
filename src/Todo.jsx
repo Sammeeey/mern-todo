@@ -4,7 +4,10 @@ function Todo() {
 
   return (
     <>
-    Todo
+    <div>
+    <span>Todo Task</span>
+    <button type="button">&#10005;</button>
+    </div>
     </>
   )
 }
