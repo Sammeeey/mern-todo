@@ -1,7 +1,7 @@
 import './Todo.css'
 
 function Todo({thisTodo, setTodos}) {
-    const deleteTodo = (e) => {
+    const deleteTodo = () => {
         setTodos(prevTodos => prevTodos.filter(todo => thisTodo.id === todo.id ? null : todo))
     }
 
