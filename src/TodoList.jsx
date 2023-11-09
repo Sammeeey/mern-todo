@@ -4,17 +4,24 @@ import { useState } from "react";
 import NewTodoForm from "./NewTodoForm";
 import Todo from "./Todo";
 
-const dummyTodos = [{id: 'aoji-ajoai', task: 'dishes', done: false}, {id: 'ejii-wai', task: 'groceries', done: true}]
+let uuid = () => crypto.randomUUID()
+
+const dummyTodos = [{id: uuid(), task: 'dishes', done: false}, {id: uuid(), task: 'groceries', done: true}]
 
 function TodoList() {
     const [todos, setTodos] = useState(dummyTodos)
+
+    const createTodo = (formTodo) => {
+        console.log('formTodo', formTodo)
+        return {id: uuid(), task: formTodo.todoTask, done: false}
+    }
 
     // console.log(todos[1])
 
     return (
         <>
         {todos.map((todo) => <Todo thisTodo={todo} key={todo.id} {...{setTodos}} />)}
-        <NewTodoForm />
+        <NewTodoForm {...{setTodos}} createTodo={(formTodo) => createTodo(formTodo)} />
         </>
     )
 }
