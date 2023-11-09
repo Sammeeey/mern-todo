@@ -1,11 +1,11 @@
 // import './Todo.css'
 
-function Todo() {
+function Todo({todo}) {
 
     return (
         <>
         <div>
-            <span>Todo Task</span>
+            <span>{todo.task}</span>
             <button type="button">&#10005;</button>
         </div>
         </>
