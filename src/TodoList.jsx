@@ -5,14 +5,15 @@ import Todo from "./Todo";
 
 function TodoList() {
 
-  return (
-    <>
-    <Todo />
-    <Todo />
-    <Todo />
-    <NewTodoForm />
-    </>
-  )
+
+    return (
+        <>
+        <Todo />
+        <Todo />
+        <Todo />
+        <NewTodoForm />
+        </>
+    )
 }
 
 export default TodoList
