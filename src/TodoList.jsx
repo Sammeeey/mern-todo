@@ -20,9 +20,13 @@ function TodoList() {
         setTodos(prevTodos => prevTodos.filter(todo => todoId === todo.id ? null : todo))
     }
 
+    const toggleTodo = (todoId) => {
+        setTodos(prevTodos => prevTodos.map(todo => todoId === todo.id ? {...todo, done: !todo.done } : todo))
+    }
+
     return (
         <>
-        {todos.map((todo) => <Todo thisTodo={todo} key={todo.id} {...{setTodos}} deleteTodo={() => deleteTodo(todo.id)} />)}
+        {todos.map((todo) => <Todo thisTodo={todo} key={todo.id} {...{setTodos}} deleteTodo={() => deleteTodo(todo.id)} toggleTodo={() => toggleTodo(todo.id)} />)}
         <NewTodoForm {...{setTodos}} createTodo={(formTodo) => createTodo(formTodo)} />
         </>
     )
