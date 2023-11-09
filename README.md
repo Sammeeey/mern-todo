@@ -15,7 +15,7 @@
   - create new todo
 
 ## ToDos
-- [ ] 
+- [x] clear form after submit
 
 ### nice to have
 - [ ] store permanently

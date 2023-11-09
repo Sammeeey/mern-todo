@@ -7,16 +7,19 @@ function NewTodoForm({setTodos, createTodo}) {
         register,
         handleSubmit,
         watch,
-    } = useForm()
-
-
-    createTodo('oapka')
+        reset,
+    } = useForm({
+        defaultValues: {
+            todoTask: '',
+        }
+    })
 
     const onSubmit = (data) => {
         console.log('data', data)
         const newTodo = createTodo(data)
         console.log(newTodo)
         setTodos(prevTodos => [...prevTodos, newTodo])
+        reset()
     }
 
     console.log(watch('todoTask'))
