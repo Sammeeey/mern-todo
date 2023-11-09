@@ -13,7 +13,7 @@ function TodoList() {
 
     return (
         <>
-        {todos.map((todo) => <Todo todo={todo} key={todo.id} />)}
+        {todos.map((todo) => <Todo thisTodo={todo} key={todo.id} {...{setTodos}} />)}
         <NewTodoForm />
         </>
     )
