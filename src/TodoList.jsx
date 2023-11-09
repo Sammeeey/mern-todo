@@ -16,11 +16,13 @@ function TodoList() {
         return {id: uuid(), task: formTodo.todoTask, done: false}
     }
 
-    // console.log(todos[1])
+    const deleteTodo = (todoId) => {
+        setTodos(prevTodos => prevTodos.filter(todo => todoId === todo.id ? null : todo))
+    }
 
     return (
         <>
-        {todos.map((todo) => <Todo thisTodo={todo} key={todo.id} {...{setTodos}} />)}
+        {todos.map((todo) => <Todo thisTodo={todo} key={todo.id} {...{setTodos}} deleteTodo={() => deleteTodo(todo.id)} />)}
         <NewTodoForm {...{setTodos}} createTodo={(formTodo) => createTodo(formTodo)} />
         </>
     )
