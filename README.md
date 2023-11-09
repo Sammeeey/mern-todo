@@ -4,7 +4,7 @@
 ## Structure
 - TodoList🧠
   - list todos
-  - handle logic
+  - handle state
     - check off
     - delete
     - (edit)
