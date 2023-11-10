@@ -6,8 +6,6 @@ import Todo from "./Todo";
 
 let uuid = () => crypto.randomUUID()
 
-const dummyTodos = [{id: uuid(), task: 'dishes', done: false}, {id: uuid(), task: 'groceries', done: true}]
-
 function TodoList() {
     const [todos, setTodos] = useState(dummyTodos)
 
