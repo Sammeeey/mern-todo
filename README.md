@@ -1,4 +1,14 @@
-# React TodoList📝
+# Fullstack TodoList📝 (Frontend + Backend)
+
+
+# BACKEND
+## API 
+- ...
+
+
+
+
+# FRONTEND
 - inspired by [webdev bootcamp by colt steele (paid)](https://www.udemy.com/course/the-web-developer-bootcamp/learn/lecture/37867268)
 
 ## Structure
@@ -17,6 +27,11 @@
 ## ToDos
 - [x] clear form after submit
 - [x] store in localstorage
+- [ ] create backend (node, express, mongodb)
+- [ ] connect frontend & backend
+  - [ ] [proxy `package.json` of frontend to port of backend](https://youtu.be/MEab_a19ZGk?list=PL4cUxeGkcC9iJ_KkrkBZWZRHVwnzLIoUE&t=451)
+  - [ ] do I need (global) context?
+  - [ ] deployment!?
 
 ### nice to have
 - [ ] store permanently
@@ -35,14 +50,26 @@
 
 
 
-
-
-
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Project Structure
+```
+my-mern-app/
+|-- backend/
+|   |-- node_modules/   // Backend-specific dependencies
+|   |-- src/            // Backend source code
+|   |-- package.json    // Backend dependencies and scripts
+|   |-- ...
+|
+|-- frontend/
+|   |-- node_modules/   // Frontend-specific dependencies
+|   |-- public/         // Public assets (e.g., HTML, images)
+|   |-- src/            // Frontend source code
+|   |-- package.json    // Frontend dependencies and scripts
+|   |-- ...
+|
+|-- node_modules/       // Shared dependencies (if any)
+|-- .git/               // Git repository configuration
+|-- .gitignore          // Git ignore file
+|-- package.json        // Project-level dependencies and scripts
+|-- README.md           // Project documentation
+|-- ...
+```

@@ -1,0 +1,27 @@
+const express = require('express')
+const app = express()
+const port = 8080
+
+app.get('/', (req, res) => {
+    res.send('Hi')
+})
+
+app.post('/', (req, res) => {
+    res.send('Get POST')
+})
+
+app.put('/', (req, res) => {
+    res.send('PUT req')
+})
+
+app.delete('/', (req, res) => {
+    res.send('DELETE req')
+})
+
+
+
+
+
+app.listen(port, () => {
+    console.log(`Listening on port ${port}`)
+})
