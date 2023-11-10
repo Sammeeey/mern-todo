@@ -25,7 +25,11 @@ function TodoList() {
     }
 
     const toggleTodo = (todoId) => {
-        setTodos(prevTodos => prevTodos.map(todo => todoId === todo.id ? {...todo, done: !todo.done } : todo))
+        setTodos(prevTodos => {
+            const updatedTodos = prevTodos.map(todo => todoId === todo.id ? {...todo, done: !todo.done } : todo)
+            localStorage.setItem('TodoItems', JSON.stringify(updatedTodos))
+            return updatedTodos
+        })
     }
 
     return (

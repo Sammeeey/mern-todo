@@ -16,12 +16,12 @@
 
 ## ToDos
 - [x] clear form after submit
+- [x] store in localstorage
 
 ### nice to have
 - [ ] store permanently
-  - [ ] store in localstorage
   - [ ] store in db
-- [ ] collection of todolists
+- [ ] [collection of todolists](https://www.udemy.com/course/the-web-developer-bootcamp/learn/lecture/37867296#questions)
   - [ ] navigation
     - [ ] different routes for different todo lists
 - [ ] personalized todo lists
