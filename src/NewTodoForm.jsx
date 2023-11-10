@@ -18,7 +18,11 @@ function NewTodoForm({setTodos, createTodo}) {
         console.log('data', data)
         const newTodo = createTodo(data)
         console.log(newTodo)
-        setTodos(prevTodos => [...prevTodos, newTodo])
+        setTodos(prevTodos => {
+            const updatedTodos = [...prevTodos, newTodo];
+            localStorage.setItem('TodoItems', JSON.stringify(updatedTodos))
+            return updatedTodos
+        })
         reset()
     }
 
