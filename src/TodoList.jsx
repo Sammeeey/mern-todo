@@ -16,7 +16,7 @@ function TodoList() {
     }
 
     const deleteTodo = (todoId) => {
-        setTodos(prevTodos => prevTodos.filter(todo => todoId === todo.id ? null : todo))
+        setTodos(prevTodos => prevTodos.filter(todo => todoId !== todo.id))
     }
 
     const toggleTodo = (todoId) => {
