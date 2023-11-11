@@ -3,6 +3,7 @@ const express = require('express')
 const app = express()
 const path = require('path')
 const mongoose = require('mongoose');
+const morgan = require('morgan')
 const port = process.env.PORT || 8080
 
 const Todo = require('./models/Todo')
@@ -10,6 +11,7 @@ const Todo = require('./models/Todo')
 
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.json())
+app.use(morgan('dev'))
 
 
 
