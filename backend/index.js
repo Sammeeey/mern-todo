@@ -68,7 +68,22 @@ app.put('/:id', async (req, res) => {
 })
 
 // delete todo
-app.delete('/:id', (req, res) => {
+app.delete('/:id', async (req, res) => {
+    try {
+        const {id: todoId} = req.params
+        const todo = await Todo.findById(todoId);
+    
+        if (!todo) {
+        return res.status(404).send('Todo not found');
+        }
+    
+        const deleteTodo = await Todo.findByIdAndDelete(todoId);
+    
+        res.status(200).json(deleteTodo);
+    } catch (error) {
+        console.error('Error toggling todo:', error);
+        res.status(500).send('Internal Server Error');
+    }      
 })
 
 
