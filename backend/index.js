@@ -5,6 +5,8 @@ const path = require('path')
 const mongoose = require('mongoose');
 const port = process.env.PORT || 8080
 
+const Todo = require('./models/Todo')
+
 
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.json())
@@ -30,8 +32,10 @@ app.get('/:id', (req, res) => {
 })
 
 // create todo
-app.post('/', (req, res) => {
+app.post('/', async (req, res) => {
     res.send('Get POST')
+    const {task} = req.body
+    const todo = await Todo.create({task})
 })
 
 // check off todo
