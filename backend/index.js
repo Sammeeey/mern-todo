@@ -6,14 +6,14 @@ const port = process.env.PORT || 8080
 
 
 app.use(express.static(path.join(__dirname, 'public')))
-exp.use(express.json())
+app.use(express.json())
 
 
 
 main().then(() => {console.log('index.js connected to mongoose')}).catch(err => console.log(err));
 
 async function main() {
-    await mongoose.connect(`${process.env.MONGO_URI}`);
+    await mongoose.connect(process.env.MONGO_URI);
     // use `await mongoose.connect('mongodb://user:password@127.0.0.1:27017/test');` if your database has auth enabled
 }
 
@@ -34,12 +34,12 @@ app.post('/', (req, res) => {
 })
 
 // check off todo
-app.put('/', (req, res) => {
+app.put('/:id', (req, res) => {
     res.send('PUT req')
 })
 
 // delete todo
-app.delete('/', (req, res) => {
+app.delete('/:id', (req, res) => {
     res.send('DELETE req')
 })
 
