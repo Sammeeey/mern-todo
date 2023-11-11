@@ -24,8 +24,9 @@ async function main() {
 
 
 // read all todos
-app.get('/', (req, res) => {
-    res.json([{"id":"44fb-4b53-4034-9a0c-e8ca44767982","task":"blabla","done":false}, {"id":"lala44fb-4b53-4034-9a0c-e8ca4huhiuh2","task":"blabla2","done":true}])
+app.get('/', async (req, res) => {
+    const todos = await Todo.find({})
+    res.status(200).json(todos)
 })
 
 // read single todo
