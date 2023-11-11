@@ -3,10 +3,9 @@ const express = require('express')
 const app = express()
 const path = require('path')
 const mongoose = require('mongoose');
-const morgan = require('morgan')
+const morgan = require('morgan');
+const { getTodos } = require('./controllers/todo');
 const port = process.env.PORT || 8080
-
-const Todo = require('./models/todo')
 
 
 app.use(express.static(path.join(__dirname, 'public')))
@@ -24,10 +23,7 @@ async function main() {
 
 
 // read all todos
-app.get('/', async (req, res) => {
-    const todos = await Todo.find({})
-    res.status(200).json(todos)
-})
+app.get('/', getTodos)
 
 // read single todo
 app.get('/:id', async (req, res) => {
