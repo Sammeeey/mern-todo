@@ -8,8 +8,13 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 
 
-// read todo
+// read all todos
 app.get('/', (req, res) => {
+    res.json([{"id":"44fb-4b53-4034-9a0c-e8ca44767982","task":"blabla","done":false}, {"id":"lala44fb-4b53-4034-9a0c-e8ca4huhiuh2","task":"blabla2","done":true}])
+})
+
+// read single todo
+app.get('/:id', (req, res) => {
     res.json({"id":"44fb-4b53-4034-9a0c-e8ca44767982","task":"blabla","done":false})
 })
 
