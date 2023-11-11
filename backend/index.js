@@ -4,7 +4,7 @@ const app = express()
 const path = require('path')
 const mongoose = require('mongoose');
 const morgan = require('morgan');
-const { getTodos } = require('./controllers/todo');
+const { readTodos, readTodo, createTodo, updateTodo, deleteTodo } = require('./controllers/todo');
 const port = process.env.PORT || 8080
 
 
@@ -23,64 +23,19 @@ async function main() {
 
 
 // read all todos
-app.get('/', getTodos)
+app.get('/', readTodos)
 
 // read single todo
-app.get('/:id', async (req, res) => {
-    const {id: todoId} = req.params
-
-    const todo = await Todo.findById(todoId)
-    res.status(200).json(todo)
-})
+app.get('/:id', readTodo)
 
 // create todo
-app.post('/', async (req, res) => {
-    const {task} = req.body
-    const todo = await Todo.create({task})
-})
+app.post('/', createTodo)
 
 // check off todo
-app.put('/:id', async (req, res) => {
-    try {
-        const {id: todoId} = req.params
-        const todo = await Todo.findById(todoId);
-    
-        if (!todo) {
-        return res.status(404).send('Todo not found');
-        }
-    
-        // Toggle the 'done' field
-        const updatedTodo = await Todo.findByIdAndUpdate(
-        todoId,
-        { $set: { done: !todo.done } },
-        { new: true }
-        );
-    
-        res.status(200).json(updatedTodo);
-    } catch (error) {
-        console.error('Error toggling todo:', error);
-        res.status(500).send('Internal Server Error');
-    }      
-})
+app.put('/:id', updateTodo)
 
 // delete todo
-app.delete('/:id', async (req, res) => {
-    try {
-        const {id: todoId} = req.params
-        const todo = await Todo.findById(todoId);
-    
-        if (!todo) {
-        return res.status(404).send('Todo not found');
-        }
-    
-        const deleteTodo = await Todo.findByIdAndDelete(todoId);
-    
-        res.status(200).json(deleteTodo);
-    } catch (error) {
-        console.error('Error toggling todo:', error);
-        res.status(500).send('Internal Server Error');
-    }      
-})
+app.delete('/:id', deleteTodo)
 
 
 
