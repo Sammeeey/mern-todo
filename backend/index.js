@@ -30,8 +30,11 @@ app.get('/', async (req, res) => {
 })
 
 // read single todo
-app.get('/:id', (req, res) => {
-    res.json({"id":"44fb-4b53-4034-9a0c-e8ca44767982","task":"blabla","done":false})
+app.get('/:id', async (req, res) => {
+    const {id: todoId} = req.params
+
+    const todo = await Todo.findById(todoId)
+    res.status(200).json(todo)
 })
 
 // create todo
