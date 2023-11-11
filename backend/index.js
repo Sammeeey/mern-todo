@@ -5,6 +5,7 @@ const path = require('path')
 const mongoose = require('mongoose');
 const morgan = require('morgan');
 const { readTodos, readTodo, createTodo, updateTodo, deleteTodo } = require('./controllers/todo');
+const todoRoutes = require('./routes/todo')
 const port = process.env.PORT || 8080
 
 
@@ -22,20 +23,7 @@ async function main() {
 }
 
 
-// read all todos
-app.get('/', readTodos)
-
-// read single todo
-app.get('/:id', readTodo)
-
-// create todo
-app.post('/', createTodo)
-
-// check off todo
-app.put('/:id', updateTodo)
-
-// delete todo
-app.delete('/:id', deleteTodo)
+app.use('/', todoRoutes)
 
 
 
