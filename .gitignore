@@ -6,6 +6,9 @@
 # additions by Sam
 /public/uploads
 
+# temporary additions (bc annoying during dev when adding files to `git add`)
+dbTest.js
+
 ### Node ###
 # Logs
 logs
