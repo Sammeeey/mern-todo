@@ -35,19 +35,16 @@ app.get('/:id', (req, res) => {
 
 // create todo
 app.post('/', async (req, res) => {
-    res.send('Get POST')
     const {task} = req.body
     const todo = await Todo.create({task})
 })
 
 // check off todo
 app.put('/:id', (req, res) => {
-    res.send('PUT req')
 })
 
 // delete todo
 app.delete('/:id', (req, res) => {
-    res.send('DELETE req')
 })
 
 
