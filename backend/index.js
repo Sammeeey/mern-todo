@@ -44,7 +44,27 @@ app.post('/', async (req, res) => {
 })
 
 // check off todo
-app.put('/:id', (req, res) => {
+app.put('/:id', async (req, res) => {
+    try {
+        const {id: todoId} = req.params
+        const todo = await Todo.findById(todoId);
+    
+        if (!todo) {
+        return res.status(404).send('Todo not found');
+        }
+    
+        // Toggle the 'done' field
+        const updatedTodo = await Todo.findByIdAndUpdate(
+        todoId,
+        { $set: { done: !todo.done } },
+        { new: true }
+        );
+    
+        res.status(200).json(updatedTodo);
+    } catch (error) {
+        console.error('Error toggling todo:', error);
+        res.status(500).send('Internal Server Error');
+    }      
 })
 
 // delete todo
