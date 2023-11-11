@@ -1,9 +1,18 @@
 # Fullstack TodoList📝 (Frontend + Backend)
 
 
+## TODO
+
+
+
 # BACKEND
 ## API 
-- ...
+### Todolist
+- create
+- get/display
+- check off
+- (change task)
+- delete
 
 
 
@@ -73,3 +82,11 @@ my-mern-app/
 |-- README.md           // Project documentation
 |-- ...
 ```
+
+
+
+
+
+# Resources
+- todo list insipred by [WebDev Bootcamp (paid)](https://www.udemy.com/course/the-web-developer-bootcamp/learn/lecture/37867268)
+- backend setup inspired by [MERN stack tutorial](https://www.youtube.com/playlist?list=PL4cUxeGkcC9iJ_KkrkBZWZRHVwnzLIoUE)
