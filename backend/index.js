@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const morgan = require('morgan')
 const port = process.env.PORT || 8080
 
-const Todo = require('./models/Todo')
+const Todo = require('./models/todo')
 
 
 app.use(express.static(path.join(__dirname, 'public')))
