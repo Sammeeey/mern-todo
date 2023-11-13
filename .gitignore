@@ -5,6 +5,7 @@
 
 # additions by Sam
 /public/uploads
+Todo.md
 
 # temporary additions (bc annoying during dev when adding files to `git add`)
 dbTest.js
