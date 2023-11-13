@@ -1,6 +1,6 @@
 // import './TodoList.css'
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import NewTodoForm from "./NewTodoForm";
 import Todo from "./Todo";
 
@@ -8,7 +8,25 @@ let uuid = () => crypto.randomUUID()
 const loadLocal = () => JSON.parse(localStorage.getItem('TodoItems'))
 
 function TodoList() {
-    const [todos, setTodos] = useState(loadLocal() || [])
+    const [todos, setTodos] = useState([])
+
+    useEffect(() => {
+        const getTodos = async () => {
+            try {
+                const dbTodos = await fetch('http://localhost:8080/')
+                console.log('dbTodos', dbTodos)
+                const jsonTodos = await dbTodos.json()
+                console.log('jsonTodos', jsonTodos)
+        
+                if (dbTodos.ok){
+                    setTodos(jsonTodos)  
+                }
+            } catch (error) {
+                console.error(error)
+            }
+        };        
+        getTodos()
+    }, [])
 
     const createTodo = (formTodo) => {
         console.log('formTodo', formTodo)
