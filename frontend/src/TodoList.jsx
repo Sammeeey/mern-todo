@@ -5,7 +5,6 @@ import NewTodoForm from "./NewTodoForm";
 import Todo from "./Todo";
 
 let uuid = () => crypto.randomUUID()
-const loadLocal = () => JSON.parse(localStorage.getItem('TodoItems'))
 
 function TodoList() {
     const [todos, setTodos] = useState([])
