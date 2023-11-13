@@ -23,8 +23,13 @@ app.use(cors(corsOptions));
 main().then(() => {console.log('index.js connected to mongoose')}).catch(err => console.log(err));
 
 async function main() {
-    await mongoose.connect(process.env.MONGO_URI);
-    // use `await mongoose.connect('mongodb://user:password@127.0.0.1:27017/test');` if your database has auth enabled
+    try {
+        await mongoose.connect(process.env.MONGO_URI);
+        console.log('Connected to MongoDB');
+    } catch (error) {
+        console.error('MongoDB connection error:', error);
+        throw error; // Rethrow the error to indicate that the application failed to start
+    }
 }
 
 
