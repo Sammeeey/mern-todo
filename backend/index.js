@@ -4,7 +4,6 @@ const app = express()
 const path = require('path')
 const mongoose = require('mongoose');
 const morgan = require('morgan');
-const { readTodos, readTodo, createTodo, updateTodo, deleteTodo } = require('./controllers/todo');
 const todoRoutes = require('./routes/todo')
 const port = process.env.PORT || 8080
 

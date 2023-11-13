@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router()
+const { readTodos, readTodo, createTodo, updateTodo, deleteTodo } = require('../controllers/todo');
 
 
 // read all todos
