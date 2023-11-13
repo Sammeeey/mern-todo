@@ -32,12 +32,22 @@ function TodoList() {
         return {id: uuid(), task: formTodo.todoTask, done: false}
     }
 
-    const deleteTodo = (todoId) => {
-        setTodos(prevTodos => {
-            const updatedTodos = prevTodos.filter(todo => todoId !== todo._id)
-            localStorage.setItem('TodoItems', JSON.stringify(updatedTodos))
-            return updatedTodos
-        })
+    const deleteTodo = async (todoId) => {
+        try {
+            const delTodo = await fetch(`http://localhost:8080/${todoId}`, {
+                method: "DELETE",
+            })
+            const data = await delTodo.json()
+
+            if (delTodo.ok) {
+                setTodos(prevTodos => {
+                    const updatedTodos = prevTodos.filter(todo => todoId !== todo._id)
+                    return updatedTodos
+                })
+            }
+        } catch (err) {
+            console.error(err)
+        }
     }
 
     const toggleTodo = (todoId) => {
