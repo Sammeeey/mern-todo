@@ -33,7 +33,7 @@ async function main() {
 }
 
 
-app.use('/', todoRoutes)
+app.use('/api/todos', todoRoutes)
 
 
 

@@ -12,7 +12,7 @@ function TodoList() {
     useEffect(() => {
         const getTodos = async () => {
             try {
-                const dbTodos = await fetch('http://localhost:8080/')
+                const dbTodos = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/todos`)
                 console.log('dbTodos', dbTodos)
                 const jsonTodos = await dbTodos.json()
                 console.log('jsonTodos', jsonTodos)
@@ -34,7 +34,7 @@ function TodoList() {
 
     const deleteTodo = async (todoId) => {
         try {
-            const delTodo = await fetch(`http://localhost:8080/${todoId}`, {
+            const delTodo = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/todos/${todoId}`, {
                 method: "DELETE",
             })
             const data = await delTodo.json()
