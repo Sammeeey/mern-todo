@@ -38,7 +38,6 @@ function TodoList() {
             localStorage.setItem('TodoItems', JSON.stringify(updatedTodos))
             return updatedTodos
         })
-
     }
 
     const toggleTodo = (todoId) => {
