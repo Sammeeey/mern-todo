@@ -51,7 +51,7 @@ function TodoList() {
 
     return (
         <>
-        {todos.map((todo) => <Todo thisTodo={todo} key={todo.id} {...{setTodos}} deleteTodo={() => deleteTodo(todo.id)} toggleTodo={() => toggleTodo(todo.id)} />)}
+        {todos.map((todo) => <Todo thisTodo={todo} key={todo._id} {...{setTodos}} deleteTodo={() => deleteTodo(todo.id)} toggleTodo={() => toggleTodo(todo.id)} />)}
         <NewTodoForm {...{setTodos}} createTodo={(formTodo) => createTodo(formTodo)} />
         </>
     )
