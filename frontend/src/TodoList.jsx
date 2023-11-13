@@ -34,7 +34,7 @@ function TodoList() {
 
     const deleteTodo = (todoId) => {
         setTodos(prevTodos => {
-            const updatedTodos = prevTodos.filter(todo => todoId !== todo.id)
+            const updatedTodos = prevTodos.filter(todo => todoId !== todo._id)
             localStorage.setItem('TodoItems', JSON.stringify(updatedTodos))
             return updatedTodos
         })
@@ -42,7 +42,7 @@ function TodoList() {
 
     const toggleTodo = (todoId) => {
         setTodos(prevTodos => {
-            const updatedTodos = prevTodos.map(todo => todoId === todo.id ? {...todo, done: !todo.done } : todo)
+            const updatedTodos = prevTodos.map(todo => todoId === todo._id ? {...todo, done: !todo.done } : todo)
             localStorage.setItem('TodoItems', JSON.stringify(updatedTodos))
             return updatedTodos
         })
@@ -50,7 +50,7 @@ function TodoList() {
 
     return (
         <>
-        {todos.map((todo) => <Todo thisTodo={todo} key={todo._id} {...{setTodos}} deleteTodo={() => deleteTodo(todo.id)} toggleTodo={() => toggleTodo(todo.id)} />)}
+        {todos.map((todo) => <Todo thisTodo={todo} key={todo._id} {...{setTodos}} deleteTodo={() => deleteTodo(todo._id)} toggleTodo={() => toggleTodo(todo._id)} />)}
         <NewTodoForm {...{setTodos}} createTodo={(formTodo) => createTodo(formTodo)} />
         </>
     )
