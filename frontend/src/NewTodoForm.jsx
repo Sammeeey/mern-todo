@@ -19,7 +19,7 @@ function NewTodoForm({setTodos, createTodo}) {
         reset()
     }
 
-    console.log(watch('todoTask'))
+    // console.log(watch('todoTask'))
 
     return (
         <>
