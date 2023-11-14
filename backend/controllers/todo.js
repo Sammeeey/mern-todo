@@ -66,7 +66,7 @@ const deleteTodo = async (req, res) => {
         const todo = await Todo.findById(todoId);
     
         if (!todo) {
-        return res.status(404).send('Todo not found');
+        return res.status(404).send('Can\'t delete todo');
         }
     
         const deleteTodo = await Todo.findByIdAndDelete(todoId);
