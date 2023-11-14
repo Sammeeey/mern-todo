@@ -27,8 +27,12 @@ const readTodo = async (req, res) => {
 
 const createTodo = async (req, res) => {
     const {task} = req.body
-    const todo = await Todo.create({task})
-    res.status(200).json(todo)
+    try {
+        const todo = await Todo.create({task})
+        res.status(200).json(todo)
+    } catch (error) {
+        res.status(400).json({error: 'todo creation failed'})
+    }
 }
 
 
