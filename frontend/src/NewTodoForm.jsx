@@ -15,14 +15,7 @@ function NewTodoForm({setTodos, createTodo}) {
     })
 
     const onSubmit = (data) => {
-        console.log('data', data)
         const newTodo = createTodo(data)
-        console.log(newTodo)
-        setTodos(prevTodos => {
-            const updatedTodos = [...prevTodos, newTodo];
-            localStorage.setItem('TodoItems', JSON.stringify(updatedTodos))
-            return updatedTodos
-        })
         reset()
     }
 

@@ -27,9 +27,26 @@ function TodoList() {
         getTodos()
     }, [])
 
-    const createTodo = (formTodo) => {
-        console.log('formTodo', formTodo)
-        return {id: uuid(), task: formTodo.todoTask, done: false}
+    const createTodo = async (formTodo) => {
+        try {
+              const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/todos`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({task: formTodo.todoTask})
+            })
+            const data = await response.json()
+    
+            if (response.ok) {
+                setTodos(prevTodos => {
+                    const updatedTodos = [...prevTodos, data];
+                    return updatedTodos
+                })
+            }
+        } catch (err) {
+            console.error(err)
+        }
     }
 
     const deleteTodo = async (todoId) => {
