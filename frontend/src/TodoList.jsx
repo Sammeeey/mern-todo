@@ -67,12 +67,24 @@ function TodoList() {
         }
     }
 
-    const toggleTodo = (todoId) => {
-        setTodos(prevTodos => {
-            const updatedTodos = prevTodos.map(todo => todoId === todo._id ? {...todo, done: !todo.done } : todo)
-            localStorage.setItem('TodoItems', JSON.stringify(updatedTodos))
-            return updatedTodos
-        })
+    const toggleTodo = async (todoId) => {
+        try {
+            const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/todos/${todoId}`, {
+                method: "PUT",
+            })
+            console.log('response', response)
+            const data = await response.json()
+            console.log('data', data)
+    
+            if (response.ok) {
+                setTodos(prevTodos => {
+                    const updatedTodos = prevTodos.map(todo => todoId === todo._id ? {...todo, done: !todo.done } : todo)
+                    return updatedTodos
+                })
+            }
+        } catch (err) {
+            console.error(err)
+        }
     }
 
     return (
