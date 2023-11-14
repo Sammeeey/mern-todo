@@ -36,11 +36,11 @@ function TodoList() {
                 },
                 body: JSON.stringify({task: formTodo.todoTask})
             })
-            const data = await response.json()
+            const json = await response.json()
     
             if (response.ok) {
                 setTodos(prevTodos => {
-                    const updatedTodos = [...prevTodos, data];
+                    const updatedTodos = [...prevTodos, json];
                     return updatedTodos
                 })
             }
@@ -54,7 +54,7 @@ function TodoList() {
             const delTodo = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/todos/${todoId}`, {
                 method: "DELETE",
             })
-            const data = await delTodo.json()
+            const json = await delTodo.json()
 
             if (delTodo.ok) {
                 setTodos(prevTodos => {
@@ -73,8 +73,8 @@ function TodoList() {
                 method: "PUT",
             })
             console.log('response', response)
-            const data = await response.json()
-            console.log('data', data)
+            const json = await response.json()
+            console.log('data', json)
     
             if (response.ok) {
                 setTodos(prevTodos => {
