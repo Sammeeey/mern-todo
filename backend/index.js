@@ -14,7 +14,7 @@ const corsOptions = {
     credentials: true,
 };
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.json())
 app.use(morgan('dev'))
