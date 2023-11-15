@@ -33,6 +33,12 @@ async function main() {
 }
 
 
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', process.env.FRONTEND_URI);
+    res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE');
+    next()
+});
+
 app.use('/api/todos', todoRoutes)
 
 
