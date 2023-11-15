@@ -90,3 +90,4 @@ my-mern-app/
 # Resources
 - todo list insipred by [WebDev Bootcamp (paid)](https://www.udemy.com/course/the-web-developer-bootcamp/learn/lecture/37867268)
 - backend setup inspired by [MERN stack tutorial](https://www.youtube.com/playlist?list=PL4cUxeGkcC9iJ_KkrkBZWZRHVwnzLIoUE)
+- [deployment](https://youtu.be/Cfi0mymfKiA)
