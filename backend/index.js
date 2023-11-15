@@ -11,6 +11,7 @@ const port = process.env.PORT || 8080
 const corsOptions = {
     origin: [process.env.FRONTEND_URI, 'http://localhost:5173'],
     optionsSuccessStatus: 200,
+    credentials: true,
 };
 
 app.use(cors(corsOptions));
