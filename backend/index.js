@@ -34,6 +34,9 @@ async function main() {
 }
 
 
+app.get('/', (req, res) => {
+    res.send('Home')
+})
 
 app.use('/api/todos', todoRoutes)
 
