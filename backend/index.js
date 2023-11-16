@@ -11,7 +11,7 @@ const cors = require('cors');
 const port = process.env.PORT || 8080
 
 const corsOptions = {
-    origin: [process.env.FRONTEND_URI, 'http://localhost:5173'],
+    origin: [process.env.FRONTEND_URI],
     optionsSuccessStatus: 200,
 };
 
