@@ -25,7 +25,7 @@ function TodoList() {
             }
         };        
         getTodos()
-    }, [todos])
+    }, [])
 
     const createTodo = async (formTodo) => {
         try {
